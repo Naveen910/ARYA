@@ -39,31 +39,28 @@ ARYA uses a coordinator agent to orchestrate multiple specialized agents:
 
 ## Architecture
 
-markdown
-Copy code
-┌────────────────┐
-│ Coordinator │
-│ Agent │
-└─────┬──────────┘
-│
-┌──────────┼──────────┐
-│ │ │
+```
+           ┌────────────────┐
+           │ Coordinator    │
+           │ Agent          │
+           └─────┬──────────┘
+                 │
+      ┌──────────┼──────────┐
+      │          │          │
 ┌────────┐ ┌───────────┐ ┌─────────┐
-│NewsAgent│ │Sentiment │ │Technical│
-│ │ │Agent │ │Agent │
+│NewsAgent│ │Sentiment  │ │Technical│
+│        │ │Agent      │ │Agent    │
 └────────┘ └───────────┘ └─────────┘
-│ │ │
-└──────────┼──────────┘
-│
-┌─────────────┐
-│ Aggregator │
-│ Agent │
-└─────────────┘
-│
-BUY/SELL/HOLD
-
-yaml
-Copy code
+      │          │          │
+      └──────────┼──────────┘
+                 │
+           ┌─────────────┐
+           │ Aggregator  │
+           │ Agent       │
+           └─────────────┘
+                 │
+             BUY/SELL/HOLD
+```
 
 ---
 
@@ -74,35 +71,45 @@ Copy code
 ```bash
 git clone https://github.com/yourusername/ARYA.git
 cd ARYA
-Create a virtual environment:
+```
 
-bash
-Copy code
+2. Create a virtual environment:
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate  # macOS/Linux
 .venv\Scripts\activate     # Windows
-Install dependencies:
+```
 
-bash
-Copy code
+3. Install dependencies:
+
+```bash
 pip install -r requirements.txt
-Create a .env file in the root directory and add your API keys:
+```
 
-ini
-Copy code
+4. Create a `.env` file in the root directory and add your API key:
+
+```ini
 GOOGLE_API_KEY=your_google_api_key_here
-Usage
+```
+
+---
+
+## Usage
+
 Start ARYA via the ADK CLI:
 
-bash
-Copy code
+```bash
 adk run ARYA
+```
+
 Example interaction:
 
-markdown
-Copy code
+```
 [user]: hi
 [ETFCoordinator]: Hello! I am the ETF signal coordinator. I can help you by providing BUY/SELL/HOLD signals for ETFs. To do this, I need to gather some information. What ETF are you interested in, and what kind of information are you looking for? For example, are you interested in recent news, sentiment, technical indicators, or the overall macro regime?
 [user]: GROWWRAIL
 [ETFCoordinator]: Generating signals for GROWWRAIL...
 ```
+
+---
