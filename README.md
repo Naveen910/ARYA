@@ -1,0 +1,108 @@
+# ARYA - AI ETF Trading Assistant
+
+**ARYA** is an AI-driven multi-agent system designed to provide real-time BUY/SELL/HOLD signals for Exchange-Traded Funds (ETFs). It integrates market news, sentiment analysis, technical indicators, and macroeconomic data to deliver informed trading recommendations.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Overview
+
+ARYA uses a coordinator agent to orchestrate multiple specialized agents:
+
+- **NewsAgent:** Fetches and processes market and company news.
+- **SentimentAgent:** Analyzes news and market sentiment.
+- **TechnicalAgent:** Extracts and interprets technical indicators.
+- **MacroAgent:** Monitors macroeconomic indicators and regimes.
+- **AggregatorAgent:** Combines outputs from all agents to generate the final trading signal.
+
+---
+
+## Features
+
+- Real-time ETF signal generation (BUY/SELL/HOLD)
+- Multi-agent architecture for modularity and scalability
+- Integration with Google Gemini LLM for advanced reasoning
+- Support for custom ETFs and market data sources
+
+---
+
+## Architecture
+
+markdown
+Copy code
+┌────────────────┐
+│ Coordinator │
+│ Agent │
+└─────┬──────────┘
+│
+┌──────────┼──────────┐
+│ │ │
+┌────────┐ ┌───────────┐ ┌─────────┐
+│NewsAgent│ │Sentiment │ │Technical│
+│ │ │Agent │ │Agent │
+└────────┘ └───────────┘ └─────────┘
+│ │ │
+└──────────┼──────────┘
+│
+┌─────────────┐
+│ Aggregator │
+│ Agent │
+└─────────────┘
+│
+BUY/SELL/HOLD
+
+yaml
+Copy code
+
+---
+
+## Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/ARYA.git
+cd ARYA
+Create a virtual environment:
+
+bash
+Copy code
+python3 -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
+Install dependencies:
+
+bash
+Copy code
+pip install -r requirements.txt
+Create a .env file in the root directory and add your API keys:
+
+ini
+Copy code
+GOOGLE_API_KEY=your_google_api_key_here
+Usage
+Start ARYA via the ADK CLI:
+
+bash
+Copy code
+adk run ARYA
+Example interaction:
+
+markdown
+Copy code
+[user]: hi
+[ETFCoordinator]: Hello! I am the ETF signal coordinator. I can help you by providing BUY/SELL/HOLD signals for ETFs. To do this, I need to gather some information. What ETF are you interested in, and what kind of information are you looking for? For example, are you interested in recent news, sentiment, technical indicators, or the overall macro regime?
+[user]: GROWWRAIL
+[ETFCoordinator]: Generating signals for GROWWRAIL...
+```
