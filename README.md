@@ -40,26 +40,27 @@ ARYA uses a coordinator agent to orchestrate multiple specialized agents:
 ## Architecture
 
 ```
-           ┌────────────────┐
-           │ Coordinator    │
-           │ Agent          │
-           └─────┬──────────┘
-                 │
-      ┌──────────┼──────────┐
-      │          │          │
-┌────────┐ ┌───────────┐ ┌─────────┐
-│NewsAgent│ │Sentiment  │ │Technical│
-│        │ │Agent      │ │Agent    │
-└────────┘ └───────────┘ └─────────┘
-      │          │          │
-      └──────────┼──────────┘
-                 │
-           ┌─────────────┐
-           │ Aggregator  │
-           │ Agent       │
-           └─────────────┘
-                 │
-             BUY/SELL/HOLD
+                     ┌────────────────┐
+                     │  Coordinator   │
+                     │     Agent      │
+                     └───────┬────────┘
+                             │
+             ┌───────────────┼─────────────────┐
+             │               │                 │
+        ┌───────────┐   ┌────────────┐   ┌────────────┐
+        │   News    │   │ Sentiment  │   │ Technical  │
+        │   Agent   │   │   Agent    │   │   Agent    │
+        └───────────┘   └────────────┘   └────────────┘
+             │               │                 │
+             └───────────────┼─────────────────┘
+                             │
+                       ┌─────────────┐
+                       │ Aggregator  │
+                       │    Agent    │
+                       └─────────────┘
+                             │
+                         BUY/SELL/HOLD
+
 ```
 
 ---
@@ -69,7 +70,7 @@ ARYA uses a coordinator agent to orchestrate multiple specialized agents:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/ARYA.git
+git clone https://github.com/Naveen910/ARYA
 cd ARYA
 ```
 
