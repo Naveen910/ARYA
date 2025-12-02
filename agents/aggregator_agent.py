@@ -7,18 +7,18 @@ aggregator_agent = Agent(
     name="AggregatorAgent",
     model=Gemini(model="gemini-2.5-flash", api_key=GOOGLE_API_KEY),
     instruction="""
-Merge all signals:
-- news_output
-- sentiment_output
-- technical_output
-- macro_output
-
-Return final ETF signal:
-{
-  "final_signal": "BUY / SELL / HOLD",
-  "confidence": 0-100,
-  "rationale": ""
-}
-""",
+                Merge all signals:
+                - news_output
+                - sentiment_output
+                - technical_output
+                - macro_output
+                
+                Return final_output:
+                  etf_name: "",
+                  final_signal: "BUY / SELL / HOLD",
+                  confidence: "0-100%",
+                  rationale: ""
+                Always use natural language explanation under "rationale".
+                """,
     output_key="final_output"
 )
