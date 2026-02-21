@@ -1,4 +1,4 @@
-# ARYA - AI ETF Trading Assistant
+# ARYA - AI ETF Trading Agent
 
 **ARYA** is an AI-driven multi-agent system designed to provide real-time BUY/SELL/HOLD signals for Exchange-Traded Funds (ETFs). It integrates market news, sentiment analysis, technical indicators, and macroeconomic data to deliver informed trading recommendations.
 
