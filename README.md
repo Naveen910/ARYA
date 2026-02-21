@@ -99,7 +99,6 @@ GOOGLE_API_KEY=your_google_api_key_here
 Start ARYA via the ADK CLI:
 
 ```bash
-pip install google-adk
 adk run ARYA
 ```
 
