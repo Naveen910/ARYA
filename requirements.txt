@@ -3,3 +3,4 @@ python-dotenv
 yfinance
 requests
 nsepy
+tabula-py
